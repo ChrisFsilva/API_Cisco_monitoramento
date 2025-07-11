@@ -1,4 +1,4 @@
-import xapi from 'xapi';
+ import xapi from 'xapi';
  
 // Função segura para buscar status
 function getSafe(path) {
@@ -94,8 +94,8 @@ setInterval(async () => {
     const qualidadeMedia = emChamada ? await getQualidadeMediaChannels() : null;
  
     const dados = {
-      sala: 'Latitude',
-      unidade: 'Cenu',
+      sala: 'Nome da sala',
+      unidade: 'Unidade da sala',
       emChamada,
       pessoasNaSala: pessoas ?? 'Indefinido',
       ip: ip ?? 'Desconhecido',
@@ -109,7 +109,7 @@ setInterval(async () => {
       qualidadeMedia: qualidadeMedia ?? 'Sem canais ativos'
     };
  
-    const webhookUrl = 'https://prod-20.brazilsouth.logic.azure.com:443/workflows/f5adf7c826ca4d9ba9ddd7b49dd5a79d/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=tXl2JyhlE0M5dOyR1vCzeSYWYhyJUXSDY6FbSry8fmg';
+    const webhookUrl = 'Endereço do Webhook que receberá a informação';
  
     xapi.command('HttpClient.Post', {
       Url: webhookUrl,
